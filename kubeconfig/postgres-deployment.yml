@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+  namespace: test-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      components: postgres
+  template:
+    metadata:
+      labels:
+        components: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16.0
+          resources:
+            limits:
+              memory: "500Mi"
+              cpu: "300m"
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_DBchange-me
+            - name: POSTGRES_USERchange-me
+            - name: POSTGRES_PASSWORDchange-me
