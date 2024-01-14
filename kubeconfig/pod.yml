@@ -9,6 +9,7 @@ spec:
   containers:
   - name: short-app
     image: antonlarichev/short-app
+    imagePullPolicy: Always
     ports:
       - containerPort: 80
     resources:
