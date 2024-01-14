@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: short-app-port
+  namespace: test-app
+spec:
+  type: NodePort
+  ports:
+    - port: 3000
+      targetPort: 80
+      nodePort: 31200
+  selector:
+    components: frontend
