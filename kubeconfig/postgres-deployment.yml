@@ -25,4 +25,8 @@ spec:
           env:
             - name: POSTGRES_DBchange-me
             - name: POSTGRES_USERchange-me
-            - name: POSTGRES_PASSWORDchange-me
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: password
